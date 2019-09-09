@@ -6,7 +6,7 @@ grails.project.work.dir = "target/work"
 grails.project.target.level = 1.8
 grails.project.source.level = 1.8
 
-//grails.plugin.location."ala-bootstrap2" = "../ala-bootstrap2"
+//grails.plugin.location."ala-bootstrap3" = "../ala-bootstrap3"
 //grails.plugin.location."collectory-plugin" = "../collectory-plugin"
 
 grails.project.fork = [
@@ -28,7 +28,7 @@ grails.project.dependency.resolution = {
 
     repositories {
         mavenLocal()
-        mavenRepo("http://nexus.ala.org.au/content/groups/public/") {
+        mavenRepo("https://nexus.ala.org.au/content/groups/public/") {
             updatePolicy 'always'
         }
     }
@@ -38,14 +38,17 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        runtime ":collectory:1.9.2-SNAPSHOT"
+        runtime ":collectory:1.9.9-SNAPSHOT"
+        runtime ":ala-bootstrap3:2.2.0"
+        runtime ":resources:1.2.14"
         runtime ":cached-resources:1.0"
-        build   ":release:3.0.1"
-        runtime ":ala-bootstrap3:2.1.2"
+        build   ":release:3.1.2"
+        runtime ":rest-client-builder:2.1.1"
         runtime (":ala-auth:2.1.4") {
             exclude "servlet-api"
         }
         build ':tomcat:7.0.54'
         compile ":build-info:1.2.6"
+        runtime ":ala-admin-plugin:1.3"
     }
 }
